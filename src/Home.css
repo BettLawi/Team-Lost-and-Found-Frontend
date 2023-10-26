@@ -1,0 +1,65 @@
+.home-container {
+    position: relative; /* Create a positioning context for the child */
+    width: 100%; /* You can adjust the width as needed */
+    
+   
+}
+
+.right-image {
+    position: fixed;
+    right: -80px;
+    top: 70px; /* You can adjust the top position if necessary */
+    z-index: 1; /* Adjust the z-index if needed to control the stacking order */
+    
+}
+#image_lost {
+    width: 950px;
+    
+}
+#centerText {
+    font-size: xx-large;
+    font-family: Poppins;
+    font-weight: 1400;
+    max-width: 50% ;
+}
+#new_center {
+    max-width: 55%;
+    font-weight: 400;
+    font-size: medium;
+    margin-top: 40px;
+}
+
+.homeText {
+    margin-bottom: 190px;
+    margin-left: 30px;
+}
+
+#lost_btn {
+    background-color: #000;
+    color: #00FFFF;
+    
+    border: 1px solid ;
+
+}
+#lost_btn:hover {
+    color: white;
+
+}
+#found_btn {
+    padding: 16px 10px;
+    border: 1px solid ;
+    transition: 0.9s;
+}
+#found_btn:hover {
+   background-color:  #FAF9F6;
+}
+.homeButtons{
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+    margin-left: 90px;
+}
+
+
+
+/* Add any other styles as needed */

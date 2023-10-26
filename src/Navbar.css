@@ -5,12 +5,12 @@
     
     padding: 10px 12px;
     position: fixed;
-    top: 10px;
+    top: 5px;
     
     width: 99%;
     height: 50px;
     z-index: 10 ;
-    background-color: #FFFDD0;
+   
     
 }
 #lost {
@@ -31,14 +31,14 @@
 }
 
 .nav-menu li{
-    padding: 0 2rem;
+    padding: 0 1rem;
     color: black;
 }
 
 .nav-menu li a{
     font-family: Poppins;
-    font-weight: 120;
-    font-size: larger;
+    font-weight: 550;
+    font-size: medium;
     color: black;
 
 }
