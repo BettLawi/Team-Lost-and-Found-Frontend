@@ -1,47 +1,42 @@
 import React, { useState } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
-import {FaBars,FaTimes} from 'react-icons/fa'
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { CgSearchFound } from 'react-icons/cg';
+
 
 function Navbar() {
 
     const [click,setClick] =useState(false)
     const handleClick=()=> setClick(!click)
 
-    const [color,setColor]=useState(false)
-
-    const changeColor=()=>{
-      if(window.scrollY >=100){
-        setColor(true )
-      }
-      else{
-        setColor(false)
-      }
-    }
-
-    window.addEventListener('scroll',changeColor)
-
+    
   return (
-    <div className={color ? 'header header-bg':'header'}>
-      <Link to='/'>
-        <h2>Judy</h2>
-      </Link>
+    <div className="header" >
+      <div className='search'>
+        <Link to='/' id='lost'>Lost & Found  </Link> 
+        <CgSearchFound id='search'/>
+      </div>
       <ul className={click?'nav-menu active':'nav-menu'}>
+       
         <li>
-            <Link to='/'>Home </Link>
+            <Link to='/add'>Add items</Link>
         </li>
         <li>
-            <Link to='/projects'>Projects </Link>
+            <Link to='/returned'>Returned items</Link>
         </li>
         <li>
-            <Link to='/about'>About</Link>
+            <Link to='/lost'>Lost items </Link>
         </li>
         <li>
-            <Link to='/contacts'>Contact </Link>
+            <Link to="/found"> Found items</Link>
+        </li>
+        <li>
+            <Link to="/received">Received rewards</Link>
         </li>
       </ul>
       <div className='hamburger' onClick={handleClick}>
-        {click ? ( <FaTimes size={20} style={{color:'#fff'}}/>):(  <FaBars size={20} style={{color:'#fff'}}/>)}
+        {click ? ( <FaTimes size={40} style={{color:'#fff'}}/>):(  <FaBars size={40} style={{color:'#fff'}}/>)}
        
       
       </div>
