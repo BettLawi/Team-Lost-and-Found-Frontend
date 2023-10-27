@@ -1,5 +1,5 @@
 import React from 'react';
-function receivedRewards() {
+function ReceivedRewards() {
 
 }
-export default receivedRewards;
+export default ReceivedRewards;

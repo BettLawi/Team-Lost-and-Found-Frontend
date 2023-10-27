@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
-import addItems from './addItems';
+import AddItems from './addItems';
 import ReturnedItems from './ReturnedItems';
-import lostItems from './lostItems';
+import LostItems from './lostItems';
 import FoundItems from './FoundItems';
-import receivedRewards from './receivedRewards';
+import ReceivedRewards from './receivedRewards';
+import  ApplicationForm from './foundApplication'
 
 function App() {
   
@@ -16,11 +17,12 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/add" element={<addItems/>}/>
+        <Route path="/add" element={<AddItems/>}/>
         <Route path="/returned" element={<ReturnedItems/>}/>
-        <Route path="/lost" element={<lostItems/>}/>
+        <Route path="/lost" element={<LostItems/>}/>
         <Route path="/found" element={<FoundItems/>}/>
-        <Route path="/received" element={<receivedRewards/>}/>
+        <Route path="/received" element={<ReceivedRewards/>}/>
+        <Route path="/foundApplication" element={<ApplicationForm/>}/>
       </Routes>
     </BrowserRouter>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-function addItems() {
+function AddItems() {
 
 }
-export default addItems;
+export default AddItems;

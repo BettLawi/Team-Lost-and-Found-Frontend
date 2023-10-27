@@ -1,5 +1,5 @@
 import React from 'react';
-function lostItems() {
+function LostItems() {
 
 }
-export default lostItems;
+export default LostItems;
