@@ -7,6 +7,7 @@ import LostItems from './lostItems';
 import FoundItems from './FoundItems';
 import ReceivedRewards from './receivedRewards';
 import  ApplicationForm from './foundApplication'
+import ApplicationFormLost from './lostAplication';
 
 function App() {
   
@@ -23,6 +24,8 @@ function App() {
         <Route path="/found" element={<FoundItems/>}/>
         <Route path="/received" element={<ReceivedRewards/>}/>
         <Route path="/foundApplication" element={<ApplicationForm/>}/>
+        <Route path="/lostApplication" element={<ApplicationFormLost/>}/>
+        
       </Routes>
     </BrowserRouter>
 

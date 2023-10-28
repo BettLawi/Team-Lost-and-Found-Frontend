@@ -1,35 +1,29 @@
-
 form {
     display: flex;
     flex-direction: column;
-    width: 1200px;
-    height: 100vh; /* 100% of the viewport height */
-    
-    background-color: white;
-    
+    width: 900px;
+    height: 100vh;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
-  }
-  h2 {
-    position: fixed;
-    top: 60px;
-    border-bottom: 2px solid ;
-
+    background-color: white;
     
   }
-  .bottom {
-    margin-bottom: 150px;
+  
+  h2 {
+    border-bottom: 2px solid #90EE90;
+     /* Adjust the margin as needed */
   }
   
   .input-group {
     display: flex;
-    
-    
     flex-direction: column;
+    margin-bottom: 20px;
     text-align: left;
     gap: 15px;
-    
   }
   
   label {
@@ -38,7 +32,7 @@ form {
     font-weight: 100;
     text-align: left;
   }
-  
+  input[type="number"],
   input[type="text"],
   input[type="file"] {
     width: 300px;
@@ -49,9 +43,8 @@ form {
     margin-bottom: 5px;
   }
   
-  
   button {
-    background-color:#90EE90;
+    background-color: #90EE90;
     color: black;
     padding: 20px 20px;
     border: none;
@@ -59,7 +52,7 @@ form {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    margin-left: 50px;
+    margin-top: 20px;
   }
   
   .required {

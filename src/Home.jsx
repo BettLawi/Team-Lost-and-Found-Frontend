@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
 import Navbar from './Navbar';
+import { Link } from 'react-router-dom'
 
 function Home() {
     return (
@@ -19,8 +20,12 @@ function Home() {
                 </p>
             </div>
             <div className='homeButtons'>
+                <Link to='/lostApplication'>
                 <button id = "lost_btn">Report lost item</button>
-                <button id='found_btn'> Report found item</button>
+                </Link>
+                <Link to='/foundApplication'>
+                    <button id='found_btn'> Report found item</button>
+                </Link>
             </div>
         </div>
     );

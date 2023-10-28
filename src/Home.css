@@ -10,7 +10,7 @@
     right: -80px;
     top: 70px; /* You can adjust the top position if necessary */
     z-index: 1; /* Adjust the z-index if needed to control the stacking order */
-    
+    opacity: 0.7;
 }
 #image_lost {
     width: 950px;
@@ -23,35 +23,38 @@
     max-width: 50% ;
 }
 #new_center {
-    max-width: 55%;
-    font-weight: 400;
-    font-size: medium;
+    max-width: 50%;
+    font-weight: 200;
+    font-size: large;
     margin-top: 40px;
 }
 
 .homeText {
-    margin-bottom: 190px;
+    margin-top: 250px;
+    margin-bottom: 170px;
     margin-left: 30px;
 }
 
 #lost_btn {
-    background-color: #000;
-    color: #00FFFF;
+    background-color: #90EE90;
+    color: black;
     
     border: 1px solid ;
+    transition: 0.3s;
 
 }
 #lost_btn:hover {
-    color: white;
+    background-color: white;
 
 }
 #found_btn {
     padding: 16px 10px;
+    background-color: white;
     border: 1px solid ;
     transition: 0.9s;
 }
 #found_btn:hover {
-   background-color:  #FAF9F6;
+   background-color:  #90EE90;
 }
 .homeButtons{
     display: flex;
