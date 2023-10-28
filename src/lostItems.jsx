@@ -43,11 +43,14 @@ function LostItems() {
       <div className="cards-container">
         {fakeFormData.map((data, index) => (
           <div className="card" key={index}>
-            <button> X</button>
+            <button id='deleteBtn '> X</button>
             <p>Reward - : ${data.reward}</p>
             <h3>Lost Item: {data.lostItem}</h3>
+            
             <p>Description: {data.description}</p>
+            
             <img src={data.image} alt="none" />
+            <button>Approve Item</button>
           </div>
         ))}
       </div>

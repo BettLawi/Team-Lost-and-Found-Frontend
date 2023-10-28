@@ -1,0 +1,10 @@
+.addItems {
+    /* Styles for the addItems component */
+    /* Add your specific styles here */
+  }
+  
+  .FoundItem-card button {
+    margin-top: 80px;
+    /* Additional styles for buttons inside .FoundItem-card */
+  }
+  

@@ -1,0 +1,16 @@
+.foundItems {
+    /* Add styles for the container that holds FoundItem-cards */
+  }
+  
+  .FoundItem-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+  }
+  .FoundItem-card button {
+   
+  }
+  

@@ -48,9 +48,13 @@
     margin: 5px 0 10px 10px 0; /* Adds spacing around the image (top, right, bottom, left) */
     float: right; /* Aligns the image to the right */
   }
-  .card button {
+  .card button:first-child {
     float: right;
     margin-top: 0px;
+  }
+  .card button:last-child{
+    margin: 70px 190px;
+    padding: 18px 20px;
   }
   
   
