@@ -9,8 +9,51 @@
     justify-content: center;
     align-items: center;
     margin-top: 90px;
+    position: relative;
   }
-  .FoundItem-card button {
-   
-  }
-  
+  /* FoundItems.css */
+
+/* Your existing styles */
+
+/* FoundItems.css */
+
+/* Your existing styles */
+
+
+/* FoundItems.css */
+
+/* Your existing styles */
+
+.card {
+  position: relative;
+  margin-bottom: 20px; /* Adds spacing between cards */
+}
+
+.commentSection {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  display: none;
+  z-index: 10;
+}
+
+.commentInput {
+  width: calc(100% - 90px); /* Adjust width as needed */
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+
+
+.commentList {
+  margin-top: 10px;
+}
+
+/* Adjust these styles according to your design */
+
+/* Adjust these styles according to your design */
+

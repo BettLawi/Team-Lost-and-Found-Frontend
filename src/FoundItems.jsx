@@ -27,6 +27,8 @@ const fakeFoundData = [
  
 ];
 
+
+
 function FoundItems() {
   const [commentsVisible, setCommentsVisible] = useState(Array(fakeFoundData.length).fill(false));
   const [claimedItem, setClaimedItem] = useState(null);
@@ -58,18 +60,18 @@ function FoundItems() {
               {commentsVisible[index] ? 'Hide Comments' : 'Show Comments'}
             </button>
             
-            {commentsVisible[index] && (
-              <div>
-                {/* Display comments or a form to add comments */}
-                <input type="text" placeholder="Add a comment" />
-                <button>Post Comment</button>
-                {/* List of comments can go here */}
+            <div className="commentSection" style={{ display: commentsVisible[index] ? 'block' : 'none' }}>
+              <input type="text" placeholder="Add a comment" className="commentInput" />
+              <button className="postCommentButton">Post Comment</button>
+              <div className="commentList">
+                {/* Sample comment list rendering logic */}
+                <p>Comment 1</p>
+                <p>Comment 2</p>
+                {/* Add your comment mapping logic here */}
               </div>
-            )}
+            </div>
             
             <img src={data.image} alt={`Image of ${data.foundItem}`} />
-
-            
           </div>
         ))}
       </div>
