@@ -11,6 +11,10 @@
     top: 70px; /* You can adjust the top position if necessary */
     z-index: 1; /* Adjust the z-index if needed to control the stacking order */
     opacity: 0.7;
+    transition: 0.3s;
+}
+.right-image:hover {
+    opacity: 1.5;
 }
 #image_lost {
     width: 950px;

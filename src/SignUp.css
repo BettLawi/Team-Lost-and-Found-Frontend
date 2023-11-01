@@ -86,4 +86,17 @@
   .sign-up-container .remember-me input[type="checkbox"] {
     margin-right: 4px;
   }
+  .role-select {
+    min-width: 80%;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .role-select select {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    background-color: white;
+  }
   

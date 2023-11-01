@@ -16,11 +16,32 @@ function AddItems() {
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
-
   const handleUpdateDetails = (index) => {
-    // Your existing logic for updating details remains the same
-    // ...
+    const newFoundItems = [...foundItems];
+    const updatedItem = { ...newFoundItems[index] };
+  
+    const updatedCategory = window.prompt('Enter updated category:', updatedItem.category);
+    const updatedFoundItem = window.prompt('Enter updated found item:', updatedItem.foundItem);
+    const updatedImage = window.prompt('Enter updated image URL:', updatedItem.image);
+  
+    // Check if the user entered a value and update the item
+    if (updatedCategory !== null) {
+      updatedItem.category = updatedCategory;
+    }
+  
+    if (updatedFoundItem !== null) {
+      updatedItem.foundItem = updatedFoundItem;
+    }
+  
+    if (updatedImage !== null) {
+      updatedItem.image = updatedImage;
+    }
+  
+    newFoundItems[index] = updatedItem;
+  
+    setFoundItems(newFoundItems);
   };
+  
 
   const handleAddClick = (index) => {
     setAddedItems(prevState => {

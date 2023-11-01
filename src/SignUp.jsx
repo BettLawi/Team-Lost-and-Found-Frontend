@@ -1,47 +1,44 @@
-// SignUp.js
-
-import React, { useState } from "react";
-import "./SignUp.css";
-import { Link,useNavigate } from 'react-router-dom'
-
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './SignUp.css';
 
 function SignUp() {
   const history = useNavigate();
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    rememberMe: false, // State for the Remember Me checkbox
+    name: '',
+    email: '',
+    password: '',
+    role: 'user', // Default role is user
+    rememberMe: false,
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    history("/HomePage")
+    // TODO: Submit form data to the backend
+    console.log('Form Data:', formData);
+    // Redirect to the appropriate page based on the role
+   
+      history('/HomePage');
     
-    
-    // TODO: Submit form data to backend
-    console.log("Form Data:", formData);
   };
 
-  const handleCheckboxChange = () => {
-    setFormData({ ...formData, rememberMe: !formData.rememberMe });
-    
+  const handleRoleChange = (event) => {
+    setFormData({ ...formData, role: event.target.value });
   };
 
   return (
     <div className="sign-up-container">
       <div className="BtnLinks">
-      <Link to='/LogIn' >
-      <button id="buttons">Log In</button>
-      </Link>
-      <Link to='/AdminLogIn' >
-      <button >Admin LogIn</button>
-      </Link>
+        <Link to="/LogIn">
+          <button id="buttons">Log In</button>
+        </Link>
+        <Link to="/AdminLogIn">
+          <button>Admin LogIn</button>
+        </Link>
       </div>
 
-      
       <form onSubmit={handleSubmit}>
-      <h1>CREATE ACCOUNT</h1>
+        <h1>CREATE ACCOUNT</h1>
         <input
           type="text"
           name="name"
@@ -70,18 +67,15 @@ function SignUp() {
           }}
         />
 
-        {/* Remember Me Checkbox */}
-        <div className="remember-me">
-          <input
-            type="checkbox"
-            id="rememberMe"
-            name="rememberMe"
-            checked={formData.rememberMe}
-            onChange={handleCheckboxChange}
-          />
-          <label htmlFor="rememberMe">Remember Me</label>
+        {/* Role selection */}
+        <div className="role-select">
+          <label>Role *</label>
+          <select value={formData.role} onChange={handleRoleChange}>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
         </div>
-        
+
         <button type="submit">Sign Up</button>
       </form>
     </div>
