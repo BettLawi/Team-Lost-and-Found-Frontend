@@ -1,0 +1,27 @@
+/* Footer.css */
+.black-and-white-footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.social-media {
+  display: flex;
+}
+
+.social-link {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
