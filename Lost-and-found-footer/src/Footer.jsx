@@ -6,8 +6,8 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="contact-info">
-          <p>Contact Us: <a href="mailto:lostfound656@gmail.com">lostfound656@gmail.com</a></p>
-          <p>Contact Number: <a href="tel:+254718534285">+254 718 534 285</a></p>
+          <p>Email Us: <a href="mailto:lostfound656@gmail.com" className="contact-link">lostfound656@gmail.com</a></p>
+          <p>Contact Us:  <a href="tel:+254718534285"><span className="contact-link">+254718534285</span></a></p>
         </div>
         <div className="social-media">
           <a href="https://www.facebook.com/profile.php?id=61552465873026" className="social-link">
