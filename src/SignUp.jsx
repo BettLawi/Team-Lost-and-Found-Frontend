@@ -9,18 +9,34 @@ function SignUp() {
     email: '',
     password: '',
     role: 'user', // Default role is user
-    rememberMe: false,
-  });
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // TODO: Submit form data to the backend
-    console.log('Form Data:', formData);
-    // Redirect to the appropriate page based on the role
-   
-      history('/HomePage');
     
-  };
+  });
+  const handleSubmit = async (event) => {
+  event.preventDefault();
+
+  try {
+    const response = await fetch('http://127.0.0.1:8000/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      
+        history('/HomePage');
+      
+    } else {
+      // Handle errors or display a message to the user
+      console.error('Failed to sign up');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    // Handle any errors that occurred during the fetch
+  }
+};
+
 
   const handleRoleChange = (event) => {
     setFormData({ ...formData, role: event.target.value });

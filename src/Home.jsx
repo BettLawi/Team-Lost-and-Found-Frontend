@@ -27,6 +27,7 @@ function Home() {
                     <button id='found_btn'> Report found item</button>
                 </Link>
             </div>
+           
         </div>
     );
 }

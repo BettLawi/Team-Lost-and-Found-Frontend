@@ -6,7 +6,7 @@ function LostItems() {
   const [lostItems, setLostItems] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/lostItems') // Replace 'https://example.com/lost-items' with your API endpoint or local file
+    fetch('http://127.0.0.1:5000//lostitems') // Replace 'https://example.com/lost-items' with your API endpoint or local file
       .then((response) => response.json())
       .then((data) => {
         setLostItems(data);
