@@ -14,7 +14,7 @@ function Navbar() {
   return (
     <div className="header" >
       <div className='search'>
-        <Link to='/' id='lost'>Lost & Found  </Link> 
+        <Link to='/HomePage' id='lost'>Lost & Found  </Link> 
         <CgSearchFound id='search'/>
       </div>
       <ul className={click?'nav-menu active':'nav-menu'}>

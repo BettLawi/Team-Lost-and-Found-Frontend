@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom'
+import Footer  from './Footer';
 
 function Home() {
     return (
@@ -27,6 +28,7 @@ function Home() {
                     <button id='found_btn'> Report found item</button>
                 </Link>
             </div>
+            <Footer/>
            
         </div>
     );

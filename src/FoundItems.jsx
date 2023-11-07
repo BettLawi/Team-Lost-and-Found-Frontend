@@ -8,17 +8,19 @@ function FoundItems() {
   const [claimedItem, setClaimedItem] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/lostItems') // Replace 'https://example.com/db.json' with your API endpoint
+    fetch('http://localhost:5555/lost&found/list_found_items')
       .then(response => response.json())
       .then(data => {
-        setFoundItems(data); // Update state with fetched data
-        setCommentsVisible(new Array(data.length).fill(false));
+        console.log('Received Data:', data); // Log the received data
+        setFoundItems(data.found_items || []); // Update state with fetched data
+        setCommentsVisible(new Array(data.found_items?.length || 0).fill(false));
       })
       .catch(error => {
         console.error('Error fetching data:', error);
         // Handle errors as needed
       });
-  }, []); // Empty dependency array makes this effect run only once
+  }, []);
+  
 
   const toggleComments = (index) => {
     const updatedCommentsVisible = [...commentsVisible];
@@ -35,10 +37,11 @@ function FoundItems() {
     <div className='foundItems'>
       <Navbar />
       <div className='FoundItem-card'>
+        
         {foundItems.map((data, index) => (
           <div className='card' key={index}>
-            <p>Category: {data.category}</p>
-            <h3>Found Item: {data.foundItem}</h3>
+            <p>Category: {data.categories}</p>
+            <h3>Found Item: {data.item_name}</h3>
             <button onClick={() => claimItem(index)} disabled={claimedItem === index}>
               {claimedItem === index ? 'Item Claimed' : 'Claim Yours'}
             </button>
@@ -57,7 +60,7 @@ function FoundItems() {
               </div>
             </div>
 
-            <img src={data.image} alt={`Image of ${data.foundItem}`} />
+            <img src={data.image_url} alt={`Image of ${data.foundItem}`} />
           </div>
         ))}
       </div>

@@ -6,7 +6,7 @@ function LostItems() {
   const [lostItems, setLostItems] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000//lostitems') // Replace 'https://example.com/lost-items' with your API endpoint or local file
+    fetch('http://127.0.0.1:5555/lost&found/lostitems') // Replace 'https://example.com/lost-items' with your API endpoint or local file
       .then((response) => response.json())
       .then((data) => {
         setLostItems(data);
@@ -25,9 +25,9 @@ function LostItems() {
           <div className="card" key={index}>
             <button id='deleteBtn'>X</button>
             <p>Reward - : ${data.reward}</p>
-            <h3>Lost Item: {data.lostItem}</h3>
-            <p>Description: {data.description}</p>
-            <img src={data.image} alt="none" />
+            <h3>Lost Item: {data.item_name}</h3>
+            <p>Description: {data.item_description}</p>
+            <img src={data.image_url} alt="none" />
             <button>Approve Item</button>
           </div>
         ))}

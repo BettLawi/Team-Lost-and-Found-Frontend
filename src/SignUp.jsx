@@ -5,38 +5,41 @@ import './SignUp.css';
 function SignUp() {
   const history = useNavigate();
   const [formData, setFormData] = useState({
-    name: '',
+    username : '',
     email: '',
     password: '',
     role: 'user', // Default role is user
-    
   });
+
+  const [error, setError] = useState(null);
+  
   const handleSubmit = async (event) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  try {
-    const response = await fetch('http://127.0.0.1:8000/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch('http://127.0.0.1:5555/lost&found/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    if (response.ok) {
-      
+      if (response.ok) {
         history('/HomePage');
-      
-    } else {
-      // Handle errors or display a message to the user
-      console.error('Failed to sign up');
+      } else {
+        if (response.status === 400) {
+          const data = await response.json();
+          setError(data.message); // If the server responds with a specific error message
+        } else {
+          setError('Failed to sign up. Please try again later.'); // For generic errors
+        }
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setError('Failed to connect to the server. Please try again later.'); // Network errors
     }
-  } catch (error) {
-    console.error('Error:', error);
-    // Handle any errors that occurred during the fetch
-  }
-};
-
+  };
 
   const handleRoleChange = (event) => {
     setFormData({ ...formData, role: event.target.value });
@@ -57,13 +60,13 @@ function SignUp() {
         <h1>CREATE ACCOUNT</h1>
         <input
           type="text"
-          name="name"
-          placeholder="Name"
-          value={formData.name}
+          name="username"
+          placeholder="Username"
+          value={formData.username} // Changed from formData.name to formData.username
           onChange={(event) => {
-            setFormData({ ...formData, name: event.target.value });
+            setFormData({ ...formData, username: event.target.value }); // Changed 'name' to 'username'
           }}
-        />
+          />
         <input
           type="email"
           name="email"
@@ -87,8 +90,8 @@ function SignUp() {
         <div className="role-select">
           <label>Role *</label>
           <select value={formData.role} onChange={handleRoleChange}>
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
+            <option value="User">User</option>
+            <option value="Admin">Admin</option>
           </select>
         </div>
 

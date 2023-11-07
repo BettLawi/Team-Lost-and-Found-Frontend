@@ -3,29 +3,33 @@ import './lostAplication.css'; // Replace with your CSS file
 
 const ApplicationFormLost = () => {
   const [lostItem, setLostItem] = useState('');
-  const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
   const [description, setDescription] = useState('');
   const [reward, setReward] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!lostItem || !image || !description || !reward) {
+    if (!lostItem || !imageUrl || !description || !reward) {
       alert('Please fill in all required fields.');
       return;
     }
 
-    const formData = new FormData();
-    formData.append('id', Math.floor(Math.random() * 1000)); // Assign a random ID, or use a different method to ensure unique IDs
-    formData.append('lostItem', lostItem);
-    formData.append('image', image);
-    formData.append('description', description);
-    formData.append('reward', reward);
+    const requestData = {
+      item_name: lostItem,
+      image_url: imageUrl,
+      item_description: description,
+      reward: reward,
+      user_reported_id: 2, // Replace '2' with the actual user ID
+    };
 
     try {
-      const response = await fetch('http://localhost:5000/lostItems', {
+      const response = await fetch('http://127.0.0.1:5555/lost&found/itemlost', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
       });
 
       if (response.ok) {
@@ -35,12 +39,6 @@ const ApplicationFormLost = () => {
       }
     } catch (error) {
       console.error('An error occurred while submitting the form:', error);
-    }
-  };
-
-  const handleImageChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setImage(e.target.files[0]);
     }
   };
 
@@ -60,12 +58,13 @@ const ApplicationFormLost = () => {
       </div>
 
       <div className="input-group">
-        <label htmlFor="image">Image of the Lost Item *</label>
+        <label htmlFor="imageUrl">Image URL *</label>
         <input
-          type="file"
-          id="image"
-          onChange={handleImageChange}
-          placeholder="Select an image file"
+          type="text"
+          id="imageUrl"
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
+          placeholder="Enter the image URL"
         />
       </div>
 
