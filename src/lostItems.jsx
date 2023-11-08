@@ -16,6 +16,27 @@ function LostItems() {
         // Handle errors as needed
       });
   }, []); // Empty dependency array to run the effect only once
+  const handleSubmit = (e, item) => {
+    e.preventDefault();
+  
+    if (!item) {
+      alert("Please select an item before claiming.");
+      return;
+    }
+  
+    fetch('http://127.0.0.1:5555/lost&found/claimitem', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ item_name: item.item_name, user_id: item.user_reported_id , status: status})
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert(data.message);
+    })
+    .catch(error => console.error('Error:', error));
+  };
 
   return (
     <div className='lostItems'>
@@ -28,7 +49,7 @@ function LostItems() {
             <h3>Lost Item: {data.item_name}</h3>
             <p>Description: {data.item_description}</p>
             <img src={data.image_url} alt="none" />
-            <button>Approve Item</button>
+            <button onClick={(e)=>handleSubmit(e ,data)}>Approve Item</button>
           </div>
         ))}
       </div>

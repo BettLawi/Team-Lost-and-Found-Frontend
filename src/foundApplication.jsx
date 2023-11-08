@@ -1,18 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './foundApplication.css'; // Replace with your CSS file
 
 const ApplicationForm = () => {
   const [item_name, setItemName] = useState('');
   const [item_description, setItemDescription] = useState('');
   const [image_url, setImageUrl] = useState('');
-  const [user_reported_id, setUserId] = useState('');
   const [category, setCategory] = useState('');
+  const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    const getTokenPayload = (token) => {
+      const [, payload] = token.split('.');
+      return JSON.parse(atob(payload));
+    };
+
+    // Retrieve token from local storage
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const payload = getTokenPayload(token);
+
+      const id = payload.id; // Extract user id
+
+      if (id) {
+        setUserId(id);
+      } else {
+        alert('Invalid token data. Please log in again.');
+      }
+    } else {
+      alert('Token not found in local storage. Please log in.');
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate the form data
-    if (!item_name || !image_url || !item_description || !user_reported_id || !category) {
+   
+
+    if (!item_name || !image_url || !item_description || !category) {
       alert('Please fill in all required fields.');
       return;
     }
@@ -21,12 +46,11 @@ const ApplicationForm = () => {
       item_name,
       image_url,
       item_description,
-      user_reported_id,
+      user_reported_id: userId, // Set the user's ID in the reported item data
       category,
     };
 
     try {
-      // Make the POST request using fetch
       const response = await fetch('http://127.0.0.1:5555/lost&found/reportfounditem', {
         method: 'POST',
         headers: {
@@ -36,10 +60,13 @@ const ApplicationForm = () => {
       });
 
       if (response.ok) {
-        // Handle success, e.g., show a success message
         alert('Found item reported successfully. Awaiting admin approval.');
+        // Reset form fields upon successful submission
+        setItemName('');
+        setItemDescription('');
+        setImageUrl('');
+        setCategory('');
       } else {
-        // Handle the error
         alert('Error reporting found item');
       }
     } catch (error) {
@@ -47,7 +74,6 @@ const ApplicationForm = () => {
       alert('An error occurred while reporting the found item.');
     }
   };
-
   return (
     <div className="backGround">
       <form onSubmit={handleSubmit}>
@@ -94,17 +120,6 @@ const ApplicationForm = () => {
               value={item_description}
               onChange={(e) => setItemDescription(e.target.value)}
               placeholder="Enter item description"
-            />
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="userId">User ID *</label>
-            <input
-              type="number"
-              id="userId"
-              value={user_reported_id}
-              onChange={(e) => setUserId(e.target.value)}
-              placeholder="Enter your user ID"
             />
           </div>
 

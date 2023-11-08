@@ -12,7 +12,9 @@ function SignUp() {
   });
 
   const [error, setError] = useState(null);
+  const [userRole, setUserRole] = useState(''); // State to store the user's role
   
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -26,6 +28,11 @@ function SignUp() {
       });
 
       if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('token', data.access_token); // Save JWT token to local storage
+        console.log(data.role)
+        setUserRole(data.role); // Store the user's role in the state
+        
         history('/HomePage');
       } else {
         if (response.status === 400) {
@@ -40,7 +47,7 @@ function SignUp() {
       setError('Failed to connect to the server. Please try again later.'); // Network errors
     }
   };
-
+  
   const handleRoleChange = (event) => {
     setFormData({ ...formData, role: event.target.value });
   };

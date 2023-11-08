@@ -19,9 +19,8 @@ function Navbar() {
       </div>
       <ul className={click?'nav-menu active':'nav-menu'}>
        
-        <li>
-            <Link to='/add'>Add items</Link>
-        </li>
+       
+       
         <li>
             <Link to='/returned'>Returned items</Link>
         </li>
@@ -33,6 +32,9 @@ function Navbar() {
         </li>
         <li>
             <Link to="/received">Received rewards</Link>
+        </li>
+        <li>
+            <Link to='/pending'>Pending Items</Link>
         </li>
       </ul>
       <div className='hamburger' onClick={handleClick}>

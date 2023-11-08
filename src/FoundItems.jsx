@@ -8,7 +8,7 @@ function FoundItems() {
   const [claimedItem, setClaimedItem] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5555/lost&found/list_found_items')
+    fetch('http://localhost:5555/lost&found/found_items')
       .then(response => response.json())
       .then(data => {
         console.log('Received Data:', data); // Log the received data
@@ -32,6 +32,28 @@ function FoundItems() {
     setClaimedItem(itemIndex);
     // Additional logic for claiming an item can go here
   };
+  const handleSubmit = (e, item) => {
+    e.preventDefault();
+  
+    if (!item) {
+      alert("Please select an item before claiming.");
+      return;
+    }
+  
+    fetch('http://127.0.0.1:5555/lost&found/claimitem', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ item_name: item.item_name, user_id: item.user_reported_id ,image_url: item.image_url,item_description: item.item_description, status: status})
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert(data.message);
+    })
+    .catch(error => console.error('Error:', error));
+  };
+
 
   return (
     <div className='foundItems'>
@@ -42,9 +64,13 @@ function FoundItems() {
           <div className='card' key={index}>
             <p>Category: {data.categories}</p>
             <h3>Found Item: {data.item_name}</h3>
-            <button onClick={() => claimItem(index)} disabled={claimedItem === index}>
-              {claimedItem === index ? 'Item Claimed' : 'Claim Yours'}
+            <button onClick={(e) => {
+              claimItem(index);
+              handleSubmit(e, data);
+              }} disabled={claimedItem === index}>
+                {claimedItem === index ? 'Item Claimed' : 'Claim Yours'}
             </button>
+
             <button onClick={() => toggleComments(index)}>
               {commentsVisible[index] ? 'Hide Comments' : 'Show Comments'}
             </button>
@@ -54,8 +80,8 @@ function FoundItems() {
               <button className="postCommentButton">Post Comment</button>
               <div className="commentList">
                 {/* Sample comment list rendering logic */}
-                <p>Comment 1</p>
-                <p>Comment 2</p>
+                <p>I think i know the owner</p>
+                <p>good of you.</p>
                 {/* Add your comment mapping logic here */}
               </div>
             </div>
@@ -69,3 +95,4 @@ function FoundItems() {
 }
 
 export default FoundItems;
+

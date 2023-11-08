@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
-import AddItems from './addItems';
+import PendingClaims from './PendingClaims';
 import ReturnedItems from './ReturnedItems';
 import LostItems from './lostItems';
 import FoundItems from './FoundItems';
@@ -24,13 +24,14 @@ function App() {
         <Route path = "/LogIn" element={<LogIn/>} /> 
         <Route path ='/adminLogIn'  element={<AdminLogIn/>}/>
         <Route path="/HomePage" element={<Home/>}/>
-        <Route path="/add" element={<AddItems/>}/>
+        
         <Route path="/returned" element={<ReturnedItems/>}/>
         <Route path="/lost" element={<LostItems/>}/>
         <Route path="/found" element={<FoundItems/>}/>
         <Route path="/received" element={<ReceivedRewards/>}/>
         <Route path="/foundApplication" element={<ApplicationForm/>}/>
         <Route path="/lostApplication" element={<ApplicationFormLost/>}/>
+        <Route path="/pending" element={<PendingClaims/>}/>
         
       </Routes>
     </BrowserRouter>
