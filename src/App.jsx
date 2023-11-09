@@ -86,24 +86,10 @@ function App() {
           }
         
         />
-        <Route
-        path='/lostitemsusers'
-        element={
-          jwToken === "" ? (
-            <>
-              <Navigate to="/redirect" />
-            </>
-          ) : (
-            role === "user" ? (
-              <>
-                <Lostitemsuser/>
-              </>
-            ) : (
-              <Navigate to="/redirectadmin" />
-            )
-          )
-        }
-        />
+       
+
+
+        
      <Route
   path="/lost"
   element={
@@ -136,16 +122,26 @@ function App() {
         )
       }/>
       
-        <Route path='/pendingclaims' element= {
-
-jwToken === "" ? (
- <>
-   <Navigate to="/redirect" />
- </>
-) : (
-  <PendingClaims/>
-)
-}/>
+        <Route path='/pendingclaims' 
+         element={
+          jwToken === "" ? (
+            <>
+              <Navigate to="/redirect" />
+            </>
+          ) : (
+            role === "user" ? (
+              <>
+              <Navigate to="/redirectadmin" />
+            {/* <Lostitemsuser/> */}
+                <LostItems /> 
+              </>
+            ) : (
+             <PendingClaims/>
+            )
+          )
+        }
+        
+        />
         <Route path="/received" 
           element={
             jwToken === "" ? (
