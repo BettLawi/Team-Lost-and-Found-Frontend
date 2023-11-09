@@ -2,21 +2,22 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.css';
 
-function SignUp() {
+function SignUp({ setRole, role }) {
   const history = useNavigate();
   const [formData, setFormData] = useState({
     username : '',
     email: '',
     password: '',
-    role: 'user', // Default role is user
+    role: 'User', // Default role is user
   });
 
   const [error, setError] = useState(null);
-  const [userRole, setUserRole] = useState(''); // State to store the user's role
   
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setRole(formData.role);
+    console.log(formData.role)
 
     try {
       const response = await fetch('http://127.0.0.1:5555/lost&found/signup', {
@@ -26,12 +27,12 @@ function SignUp() {
         },
         body: JSON.stringify(formData),
       });
-
+      
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('token', data.access_token); // Save JWT token to local storage
-        console.log(data.role)
-        setUserRole(data.role); // Store the user's role in the state
+      
+       
         
         history('/HomePage');
       } else {

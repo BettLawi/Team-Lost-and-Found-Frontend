@@ -7,6 +7,8 @@ const ApplicationForm = () => {
   const [image_url, setImageUrl] = useState('');
   const [category, setCategory] = useState('');
   const [userId, setUserId] = useState('');
+  const [role,setRole] = useState('');
+
 
   useEffect(() => {
     const getTokenPayload = (token) => {
@@ -20,13 +22,14 @@ const ApplicationForm = () => {
     if (token) {
       const payload = getTokenPayload(token);
 
-      const id = payload.id; // Extract user id
-
-      if (id) {
+      const id = payload.sub.id // Extract user id
+      const Role = payload.sub.role
+      
+     
         setUserId(id);
-      } else {
-        alert('Invalid token data. Please log in again.');
-      }
+        setRole(Role)
+  
+      
     } else {
       alert('Token not found in local storage. Please log in.');
     }
@@ -41,6 +44,8 @@ const ApplicationForm = () => {
       alert('Please fill in all required fields.');
       return;
     }
+    console.log('Data before submission:', { item_name, image_url, item_description, category, userId });
+    console.log(role)
 
     const formData = {
       item_name,

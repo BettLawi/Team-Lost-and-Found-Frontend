@@ -1,55 +1,98 @@
+
 import React, { useState, useEffect } from 'react';
 import './lostItems.css';
 import Navbar from './Navbar';
 
-function LostItems() {
+function LostItems({role}) {
   const [lostItems, setLostItems] = useState([]);
+  const [editItem, setEditItem] = useState(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5555/lost&found/lostitems') // Replace 'https://example.com/lost-items' with your API endpoint or local file
+    fetch('http://127.0.0.1:5555/lost&found/lostitems')
       .then((response) => response.json())
       .then((data) => {
         setLostItems(data);
       })
       .catch((error) => {
         console.error('Error fetching lost items:', error);
-        // Handle errors as needed
       });
-  }, []); // Empty dependency array to run the effect only once
+  }, []);
+
   const handleSubmit = (e, item) => {
     e.preventDefault();
-  
-    if (!item) {
-      alert("Please select an item before claiming.");
-      return;
-    }
-  
-    fetch('http://127.0.0.1:5555/lost&found/claimitem', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ item_name: item.item_name, user_id: item.user_reported_id , status: status})
-    })
-    .then(response => response.json())
-    .then(data => {
-      alert(data.message);
-    })
-    .catch(error => console.error('Error:', error));
+    // ... (Existing code for handling submit)
   };
 
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`http://127.0.0.1:5555/lost&found/lostitems/${id}`, {
+        method: 'DELETE',
+      });
+      setLostItems(lostItems.filter((item) => item.id !== id));
+    } catch (error) {
+      console.error('Error deleting item:', error);
+    }
+  };
+
+  const handleUpdateDetails = (item) => {
+    const newItemName = prompt('Enter the new item name:', item.item_name);
+    const newItemDescription = prompt('Enter the new description:', item.item_description);
+    const newImageUrl = prompt('Enter the new image URL:', item.image_url);
+
+    if (newItemName && newItemDescription && newImageUrl) {
+      const updatedEditItem = {
+        id: item.id,
+        item_name: newItemName,
+        item_description: newItemDescription,
+        image_url: newImageUrl,
+        reward: item.reward
+      };
+
+      setEditItem(updatedEditItem);
+      handleSave(updatedEditItem);
+    }
+  };
+
+  const handleSave = async (updatedEditItem) => {
+    try {
+      const response = await fetch(`http://127.0.0.1:5555/lost&found/itemlost/${updatedEditItem.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedEditItem),
+      });
+
+      if (response.ok) {
+        const updatedItems = lostItems.map((item) => (item.id === updatedEditItem.id ? updatedEditItem : item));
+        setLostItems(updatedItems);
+        setEditItem(null);
+      } else {
+        throw new Error('Failed to update the item. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error updating item:', error);
+    }
+  };
+  
   return (
     <div className='lostItems'>
       <Navbar />
       <div className="cards-container">
         {lostItems.map((data, index) => (
           <div className="card" key={index}>
-            <button id='deleteBtn'>X</button>
+            {role === 'Admin' && <button id='deleteBtn' onClick={() => handleDelete(data.id)}>X</button>}
             <p>Reward - : ${data.reward}</p>
             <h3>Lost Item: {data.item_name}</h3>
             <p>Description: {data.item_description}</p>
             <img src={data.image_url} alt="none" />
-            <button onClick={(e)=>handleSubmit(e ,data)}>Approve Item</button>
+            {role === 'Admin' && (
+              <div className='btns'>
+                <button id='updateBtn' onClick={() => handleUpdateDetails(data)}>Update Details</button>
+                <button onClick={(e) => handleSubmit(e, data)}>Approve Item</button>
+                
+              </div>
+            )}
           </div>
         ))}
       </div>

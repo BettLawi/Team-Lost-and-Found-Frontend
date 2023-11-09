@@ -52,10 +52,13 @@
     float: right;
     margin-top: 0px;
   }
-  .card button:last-child{
-    margin: 70px 190px;
-    padding: 18px 20px;
-  }
   
+  .card button {
+    margin-top: 50px;
+  }
+  #updateBtn {
+    margin-top: 50px;
+  }
+
   
   

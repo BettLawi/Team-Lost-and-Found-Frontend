@@ -12,6 +12,7 @@ function PendingClaims() {
         setClaimedtems(data);
         console.log(data)
       })
+     
       .catch((error) => {
         console.error('Error fetching lost items:', error);
         // Handle errors as needed
