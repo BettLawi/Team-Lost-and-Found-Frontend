@@ -19,8 +19,6 @@
     padding: 10px;
     width: 1000px;
    
-    min-height: 200px;
-    max-height: 300px;
     border-radius: 10px;
     margin: 10px;
   }
@@ -43,7 +41,7 @@
     min-height: 100px; /* Ensuring a minimum height */
     width: auto; /* Allowing the image to adjust its width */
     height: auto; /* Allowing the image to adjust its height */
-    object-fit: cover; /* Keeps the image's aspect ratio without stretching */
+    object-fit: contain; /* Keeps the image's aspect ratio without stretching */
     border-radius: 10px;
     margin: 5px 0 10px 10px 0; /* Adds spacing around the image (top, right, bottom, left) */
     float: right; /* Aligns the image to the right */

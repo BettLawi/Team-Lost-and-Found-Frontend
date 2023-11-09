@@ -5,7 +5,9 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import { CgSearchFound } from 'react-icons/cg';
 
 
-function Navbar() {
+function Navbar( {btnText}) {
+
+
 
     const [click,setClick] =useState(false)
     const handleClick=()=> setClick(!click)
@@ -14,27 +16,38 @@ function Navbar() {
   return (
     <div className="header" >
       <div className='search'>
-        <Link to='/' id='lost'>Lost & Found  </Link> 
+        <Link to='/HomePage' id='lost'>Lost & Found  </Link> 
         <CgSearchFound id='search'/>
       </div>
-      <ul className={click?'nav-menu active':'nav-menu'}>
+      <div className='linksdiv'>
+      <ul className={'nav-menu active'}>
        
-        <li>
-            <Link to='/add'>Add items</Link>
-        </li>
-        <li>
-            <Link to='/returned'>Returned items</Link>
-        </li>
-        <li>
-            <Link to='/lost'>Lost items </Link>
-        </li>
-        <li>
-            <Link to="/found"> Found items</Link>
-        </li>
-        <li>
-            <Link to="/received">Received rewards</Link>
-        </li>
-      </ul>
+       {/* <li>
+           <Link to='/returned'>Returned items</Link>
+       </li> */}
+       <li>
+           <Link to='/lost'>Lost items </Link>
+       </li>
+       <li>
+           <Link to="/found"> Found items</Link>
+       </li>
+       <li>
+           <Link to="/received">Received rewards</Link>
+       </li>
+       <li>
+        <Link to = '/pendingclaims'>Pending claims</Link>
+       </li>
+       <li>
+           <Link to="/login">
+           <button id='logoutbtn'>
+            Login:{btnText}
+              </button>
+           </Link>
+       </li>
+
+     </ul>
+      </div>
+   
       <div className='hamburger' onClick={handleClick}>
         {click ? ( <FaTimes size={40} style={{color:'#fff'}}/>):(  <FaBars size={40} style={{color:'#fff'}}/>)}
        

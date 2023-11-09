@@ -1,0 +1,27 @@
+
+.tablediv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #pendingclaims th #myicon :hover {
+    cursor: pointer;
+  }
+  #pendingclaims th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(125, 165, 189);
+    color: white;
+  }
+  #pendingclaims {
+    margin-top: 50px;
+  }
+  #pendingclaims tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  #pendingclaims td,
+  #pendingclaims th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }

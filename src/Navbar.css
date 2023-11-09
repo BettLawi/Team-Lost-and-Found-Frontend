@@ -90,3 +90,7 @@
     align-items: center;
     gap: 6px;
 }
+#logoutbtn{
+    color: brown;
+    background-color: wheat;
+}
