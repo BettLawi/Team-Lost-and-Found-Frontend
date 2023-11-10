@@ -20,7 +20,7 @@ function SignUp({ setRole, role }) {
     console.log(formData.role)
 
     try {
-      const response = await fetch('http://127.0.0.1:5555/lost&found/signup', {
+      const response = await fetch('https://lost-backend.onrender.com/lost&found/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
