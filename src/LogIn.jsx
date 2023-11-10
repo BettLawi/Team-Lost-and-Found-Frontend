@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { Link,useNavigate } from 'react-router-dom'
 import './Login.css'
 import Swal from 'sweetalert2';
+
+import Logo from './Homeimage/Logo.jpeg'
 import withReactContent from 'sweetalert2-react-content'
 
 
@@ -128,7 +130,7 @@ Swal.fire({
               </div>
             </div>
             <div className="col-sm-6 px-0 d-none d-sm-block">
-              <img src="./src/Homeimage/Logo Design for Lost and Found.jpeg"
+              <img src={Logo}
                 alt="Login image" className="w-100 vh-100" style={{ objectFit: 'cover', objectPosition: 'left' }} />
             </div>
           </div>

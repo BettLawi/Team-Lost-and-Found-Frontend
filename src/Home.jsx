@@ -3,6 +3,7 @@ import './Home.css';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
+import Logo from './Homeimage/Logo.jpeg'
 
 function Home( ) {
 
@@ -27,7 +28,7 @@ function Home( ) {
         <div className='home-container'>
            
             <div className='right-image'>
-                <img src={'./src/Homeimage/Logo Design for Lost and Found.jpeg'} alt="none" id='image_lost' />
+                <img src={Logo} alt="none" id='image_lost' />
             </div>
 
             <div className='homepageitems'>
@@ -59,10 +60,16 @@ function Home( ) {
             </div>
             <h3
             style={{
-                fontSize: '50px',
+                fontSize: '40px',
                 alignItems: 'center',
-                marginTop: '20px'
+                marginTop: '20px',
+                width: '19%',
+                fontFamily: 'Poppins',
+                marginLeft: '200px',
+                borderBottom: '2px solid green ',
+                fontWeight: '2px',
             }}
+            
             > Some of the lost Items</h3>
 
             <div className='lostItems' style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' ,marginLeft: '250px' ,marginRight: '250px' , marginTop: '150px'  }}>
