@@ -3,14 +3,14 @@ import './Home.css';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom'
 import Footer  from './Footer';
-
+import Image from './Homeimage/Image.jpeg'
 function Home() {
     
     return (
         <div className='home-container'>
             <Navbar />
             <div className='right-image'>
-                <img src={'./src/Homeimage/Logo Design for Lost and Found.jpeg'} alt="none" id='image_lost' />
+                <img src={Image} alt="none" id='image_lost' />
             </div>
             <div className='homeText'>
                 <h3 id="centerText">
