@@ -21,7 +21,7 @@ function SignUp() {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://127.0.0.1:5555/lost&found/signup', {
+      const response = await fetch('https://lostandfoundbackend-o0al.onrender.com/lost&found/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -14,7 +14,7 @@ function PendingClaims() {
 
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5555/lost&found/pendingclaim_items') // Replace 'https://example.com/lost-items' with your API endpoint or local file
+    fetch('https://lostandfoundbackend-o0al.onrender.com/lost&found/pendingclaim_items') // Replace 'https://example.com/lost-items' with your API endpoint or local file
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -30,7 +30,7 @@ function PendingClaims() {
   const Handleonapprove = async (e , item) => {
 console.log(item);
     try {
-      const response = await fetch(`http://127.0.0.1:5555/lost&found/approve_claimed_item/${item.id}`, {
+      const response = await fetch(`https://lostandfoundbackend-o0al.onrender.com/lost&found/approve_claimed_item/${item.id}`, {
         method: 'PUT', // Use PATCH or PUT depending on your server's API
         headers: {
           'Content-Type': 'application/json',

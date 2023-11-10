@@ -11,7 +11,7 @@ function Home( ) {
      
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5555/lost&found/lostitems')
+        fetch('https://lostandfoundbackend-o0al.onrender.com/lost&found/lostitems')
           .then((response) => response.json())
           .then((data) => {
             console.log(data);

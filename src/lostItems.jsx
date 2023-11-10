@@ -9,7 +9,7 @@ function LostItems() {
   const [editItem ,  setEditItem] = useState(null)
   
   useEffect(() => {
-    fetch('http://127.0.0.1:5555/lost&found/lostitems')
+    fetch('https://lostandfoundbackend-o0al.onrender.com/lost&found/lostitems')
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -23,7 +23,7 @@ function LostItems() {
   const handleDelete = async (id) => {
     console.log(id);
     try {
-      await fetch(`http://127.0.0.1:5555/lost&found/lostitems/${id}`, {
+      await fetch(`https://lostandfoundbackend-o0al.onrender.com/lost&found/lostitems/${id}`, {
         method: "DELETE",
       });
 
@@ -40,7 +40,7 @@ function LostItems() {
   const handleSave = async () => {
     try {
       await axios.put(
-        `http://127.0.0.1:5555/lost&found/itemlost/${editItem.id}`,
+        `https://lostandfoundbackend-o0al.onrender.com/lost&found/itemlost/${editItem.id}`,
         editItem
       );
 

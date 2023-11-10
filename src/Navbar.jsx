@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { CgSearchFound } from 'react-icons/cg';
 
-function Navbar({ btnText, isLoggedIn }) {
+function Navbar({ btnText, isLoggedIn , setBtnText}) {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
@@ -32,13 +32,17 @@ function Navbar({ btnText, isLoggedIn }) {
             {/* Conditionally render based on isLoggedIn */}
             {isLoggedIn && <Link to='/pendingclaims'>Pending claims</Link>}
           </li>
-          <li>
+          <li className='login' >
             <Link to="/login">
               <button id='logoutbtn'>
                 {btnText}
               </button>
+              
             </Link>
+
+
           </li>
+  
         </ul>
       </div>
 

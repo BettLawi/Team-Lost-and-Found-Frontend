@@ -9,7 +9,7 @@ function ReturnedItems() {
     // Fetch data from the server
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/returnedItems'); // Replace 'https://your-api-url.com/items' with your actual API endpoint
+        const response = await fetch('https://lostandfoundbackend-o0al.onrender.com/returnedItems'); // Replace 'https://your-api-url.com/items' with your actual API endpoint
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }

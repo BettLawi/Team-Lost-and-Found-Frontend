@@ -85,11 +85,7 @@ function App() {
             )
           }
         
-        />
-       
-
-
-        
+        />        
      <Route
   path="/lost"
   element={

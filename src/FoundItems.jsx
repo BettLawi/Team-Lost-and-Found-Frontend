@@ -19,7 +19,7 @@ function FoundItems() {
 const Myswal = withReactContent(Swal)
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5555/lost&found/found_items') // Replace 'https://example.com/lost-items' with your API endpoint or local file
+    fetch('https://lostandfoundbackend-o0al.onrender.com/lost&found/found_items') // Replace 'https://example.com/lost-items' with your API endpoint or local file
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -43,7 +43,7 @@ const Myswal = withReactContent(Swal)
       return;
     }
   
-    fetch('http://127.0.0.1:5555/lost&found/claimitem', {
+    fetch('https://lostandfoundbackend-o0al.onrender.com/lost&found/claimitem', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
