@@ -35,7 +35,7 @@ function Navbar({ btnText, isLoggedIn }) {
           <li>
             <Link to="/login">
               <button id='logoutbtn'>
-                Login: {btnText}
+                {btnText}
               </button>
             </Link>
           </li>
