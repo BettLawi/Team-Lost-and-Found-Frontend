@@ -24,9 +24,7 @@
     opacity: 0.2;
     transition: 0.3s;
 }
-.right-image:hover {
-    opacity: 1.5;
-}
+
 #image_lost {
     width: 950px;
     
