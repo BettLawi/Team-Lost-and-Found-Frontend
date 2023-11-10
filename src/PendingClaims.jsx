@@ -6,7 +6,7 @@ function PendingClaims() {
   const [Claimeditems, setClaimedtems] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5555/lost&found/pendingclaim_items')
+    fetch('https://lost-backend.onrender.com/lost&found/pendingclaim_items')
       .then((response) => response.json())
       .then((data) => {
         setClaimedtems(data);
@@ -23,10 +23,10 @@ function PendingClaims() {
     try {
       let url = '';
       if (status === 'notclaimed') {
-        url = `http://127.0.0.1:5555/lost&found/approve_claimed_item/${itemId}`;
+        url = `https://lost-backend.onrender.com/lost&found/approve_claimed_item/${itemId}`;
         // Add your handling logic for 'notclaimed' status
       } else if (status === 'pending_found_items') {
-        url = `http://127.0.0.1:5555/lost&found/approve_found_item/${itemId}`;
+        url = `https://lost-backend.onrender.com/lost&found/approve_found_item/${itemId}`;
         // Add your handling logic for 'pending' status or other statuses
       }
 

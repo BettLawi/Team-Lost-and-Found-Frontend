@@ -9,7 +9,7 @@ function ReturnedItems() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5555/lost&found/returned_items');
+        const response = await fetch('https://lost-backend.onrender.com/lost&found/returned_items');
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }

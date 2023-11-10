@@ -24,7 +24,7 @@ const ApplicationFormLost = () => {
     };
 
     try {
-      const response = await fetch('http://127.0.0.1:5555/lost&found/itemlost', {
+      const response = await fetch('https://lost-backend.onrender.com/lost&found/itemlost', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

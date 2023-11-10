@@ -11,7 +11,7 @@ function FoundItems() {
   const [comments, setComments] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5555/lost&found/found_items')
+    fetch('https://lost-backend.onrender.com/lost&found/found_items')
       .then(response => response.json())
       .then(data => {
         console.log('Received Data:', data);
@@ -83,7 +83,7 @@ function FoundItems() {
       return;
     }
     // The logic for posting item claim can go here
-    fetch('http://127.0.0.1:5555/lost&found/claimitem', {
+    fetch('https://lost-backend.onrender.com/lost&found/claimitem', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

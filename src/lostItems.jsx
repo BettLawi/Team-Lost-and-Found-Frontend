@@ -8,7 +8,7 @@ function LostItems({role}) {
   const [editItem, setEditItem] = useState(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5555/lost&found/lostitems')
+    fetch('https://lost-backend.onrender.com/lost&found/lostitems')
       .then((response) => response.json())
       .then((data) => {
         setLostItems(data);
@@ -25,7 +25,7 @@ function LostItems({role}) {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://127.0.0.1:5555/lost&found/lostitems/${id}`, {
+      await fetch(`https://lost-backend.onrender.com/lost&found/lostitems/${id}`, {
         method: 'DELETE',
       });
       setLostItems(lostItems.filter((item) => item.id !== id));
@@ -55,7 +55,7 @@ function LostItems({role}) {
 
   const handleSave = async (updatedEditItem) => {
     try {
-      const response = await fetch(`http://127.0.0.1:5555/lost&found/itemlost/${updatedEditItem.id}`, {
+      const response = await fetch(`https://lost-backend.onrender.com/lost&found/itemlost/${updatedEditItem.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
