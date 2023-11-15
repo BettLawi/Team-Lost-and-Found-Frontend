@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import './lostItems.css';
+import Swal from "sweetalert2";
+
 import Navbar from './Navbar';
 
 function LostItems({role}) {
@@ -12,15 +14,45 @@ function LostItems({role}) {
       .then((response) => response.json())
       .then((data) => {
         setLostItems(data);
+        console.log(data)
       })
       .catch((error) => {
         console.error('Error fetching lost items:', error);
       });
   }, []);
 
-  const handleSubmit = (e, item) => {
+  const handleSubmit = async (e,item) => {
     e.preventDefault();
-    // ... (Existing code for handling submit)
+
+   
+
+    
+
+    try {
+      const response = await fetch('https://lost-backend.onrender.com/lost&found/claimItem', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ item_name: item.item_name, image_url: item.image_url, item_description: item.item_description, status: 'claimed' }),
+      });
+      
+      if (response.ok) {
+        Swal.fire({
+          icon: "success",
+          
+          
+          text: " item approved succesfully successfully.",
+        })
+       
+        
+        
+      } else {
+        console.error('Failed to submit form data');
+      }
+    } catch (error) {
+      console.error('An error occurred while submitting the form:', error);
+    }
   };
 
   const handleDelete = async (id) => {

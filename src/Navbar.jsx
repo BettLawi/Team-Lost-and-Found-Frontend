@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import './Navbar.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { CgSearchFound } from 'react-icons/cg';
 
-function Navbar() {
+function Navbar({ role }) {
   const [click, setClick] = useState(false);
-  const location = useLocation();
+
+  const history = useNavigate();
 
   const handleClick = () => setClick(!click);
 
- 
+  const handleLogout = () => {
+    // Clear JWT access key from local storage
+    localStorage.removeItem('token');
+
+    // Redirect to the signup page
+    history('/');
+  };
 
   return (
     <div className="header">
@@ -33,12 +40,16 @@ function Navbar() {
         <li>
           <Link to="/received">Received rewards</Link>
         </li>
-        <li>
-          {/* Apply the handlePendingClick to the 'Pending Items' link */}
-          <Link to="/pending">
-            Pending Items
-          </Link>
-        </li>
+
+        {role === 'Admin' ? (
+          <li>
+            <Link to="/pending">Pending items</Link>
+          </li>
+        ) : (
+          <li>
+            <button onClick={handleLogout}>Log Out</button>
+          </li>
+        )}
       </ul>
       <div className="hamburger" onClick={handleClick}>
         {click ? (

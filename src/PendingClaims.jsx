@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './PendingClaims.css';
+import Swal from "sweetalert2";
 import Navbar from './Navbar';
 
 function PendingClaims() {
@@ -40,6 +41,13 @@ function PendingClaims() {
       if (response.ok) {
         console.log('Item approved:', itemId);
         console.log('Claimed item approved by admin');
+        Swal.fire({
+          icon: "success",
+          
+          title: "Success!",
+          text: "Item succesully approved by the admin.",
+        })
+
         // Handle UI update for successful approval
       } else {
         const errorData = await response.json();

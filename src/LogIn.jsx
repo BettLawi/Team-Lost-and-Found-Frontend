@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import "./SignUp.css";
 import { Link,useNavigate } from 'react-router-dom'
+import Swal from "sweetalert2";
 
 
 function LogIn() {
@@ -17,6 +18,14 @@ function LogIn() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    Swal.fire({
+      icon: "success",
+      
+      title: "Success!",
+      text: "You have successfully logged in .",
+    })
+   
+
     history("/HomePage")
     // TODO: Submit form data to backend
     console.log("Form Data:", formData);

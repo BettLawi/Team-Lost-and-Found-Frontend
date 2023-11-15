@@ -4,11 +4,11 @@ import Navbar from './Navbar';
 import { Link } from 'react-router-dom'
 import Footer  from './Footer';
 import Image from './Homeimage/Image.jpeg'
-function Home() {
+function Home({role}) {
     
     return (
         <div className='home-container'>
-            <Navbar />
+            <Navbar role={role}/>
             <div className='right-image'>
                 <img src={Image} alt="none" id='image_lost' />
             </div>

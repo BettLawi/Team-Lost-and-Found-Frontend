@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './foundApplication.css'; // Replace with your CSS file
-
+import Swal from "sweetalert2";
 const ApplicationForm = () => {
   const [item_name, setItemName] = useState('');
   const [item_description, setItemDescription] = useState('');
@@ -63,9 +63,16 @@ const ApplicationForm = () => {
         },
         body: JSON.stringify(formData),
       });
+      
 
       if (response.ok) {
-        alert('Found item reported successfully. Awaiting admin approval.');
+        Swal.fire({
+          icon: "success",
+          
+          title: "Success!",
+          text: "Found item reported successfully. Awaiting admin approval",
+        })
+        
         // Reset form fields upon successful submission
         setItemName('');
         setItemDescription('');

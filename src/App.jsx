@@ -29,7 +29,7 @@ function App() {
           />
           <Route path="/LogIn" element={<LogIn />} />
           <Route path="/adminLogIn" element={<AdminLogIn />} />
-          <Route path="/HomePage" element={<Home />} />
+          <Route path="/HomePage" element={<Home role={role}/>} />
           <Route path="/returned" element={<ReturnedItems />} />
           <Route path="/lost" element={<LostItems role={role} />} />
           <Route path="/found" element={<FoundItems />} />

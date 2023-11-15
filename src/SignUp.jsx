@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 import './SignUp.css';
+
 
 function SignUp({ setRole, role }) {
   const history = useNavigate();
@@ -31,7 +33,12 @@ function SignUp({ setRole, role }) {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('token', data.access_token); // Save JWT token to local storage
-      
+        Swal.fire({
+          icon: "success",
+
+          
+          text: "You have successfully signed up.",
+        })
        
         
         history('/HomePage');

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './FoundItems.css';
+import Swal from "sweetalert2";
 import Navbar from './Navbar';
 
 const commentURL = 'http://localhost:5555/lost&found/comments';
@@ -92,7 +93,13 @@ function FoundItems() {
     })
       .then(response => response.json())
       .then(data => {
-        alert(data.message);
+        Swal.fire({
+          icon: "success",
+          
+          
+          text: "You have successfully claimed item.Kindly wait for admin aproval.",
+        })
+       
       })
       .catch(error => console.error('Error:', error));
   };

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Swal from "sweetalert2";
+
 import './lostAplication.css'; // Replace with your CSS file
 
 const ApplicationFormLost = () => {
@@ -31,9 +33,17 @@ const ApplicationFormLost = () => {
         },
         body: JSON.stringify(requestData),
       });
-
+      
       if (response.ok) {
-        console.log('Form data submitted successfully');
+        Swal.fire({
+          icon: "success",
+          
+          
+          text: " Form data submitted successfully.",
+        })
+       
+        
+        
       } else {
         console.error('Failed to submit form data');
       }
