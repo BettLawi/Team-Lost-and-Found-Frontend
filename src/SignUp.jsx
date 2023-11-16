@@ -77,11 +77,12 @@ function SignUp({ setRole, role }) {
           type="text"
           name="username"
           placeholder="Username"
-          value={formData.username} // Changed from formData.name to formData.username
+          value={formData.username}
           onChange={(event) => {
-            setFormData({ ...formData, username: event.target.value }); // Changed 'name' to 'username'
+            setFormData({ ...formData, username: event.target.value });
           }}
-          />
+          autoComplete="username" // Added autocomplete attribute
+        />
         <input
           type="email"
           name="email"
@@ -90,6 +91,7 @@ function SignUp({ setRole, role }) {
           onChange={(event) => {
             setFormData({ ...formData, email: event.target.value });
           }}
+          autoComplete="email" // Added autocomplete attribute
         />
         <input
           type="password"
@@ -99,6 +101,7 @@ function SignUp({ setRole, role }) {
           onChange={(event) => {
             setFormData({ ...formData, password: event.target.value });
           }}
+          autoComplete="current-password" // Added autocomplete attribute
         />
 
         {/* Role selection */}
