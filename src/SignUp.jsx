@@ -19,9 +19,11 @@ function SignUp({ setRole, role }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setRole(formData.role);
-    console.log(formData.role)
 
     try {
+      // Show loading confirmation
+      Swal.showLoading();
+
       const response = await fetch('https://lost-backend.onrender.com/lost&found/signup', {
         method: 'POST',
         headers: {
@@ -29,30 +31,31 @@ function SignUp({ setRole, role }) {
         },
         body: JSON.stringify(formData),
       });
-      
+
+      // Hide loading confirmation
+      Swal.hideLoading();
+
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('token', data.access_token); // Save JWT token to local storage
+        localStorage.setItem('token', data.access_token);
         Swal.fire({
           icon: "success",
-
-          
           text: "You have successfully signed up.",
-        })
-       
-        
+        });
         history('/HomePage');
       } else {
         if (response.status === 400) {
           const data = await response.json();
-          setError(data.message); // If the server responds with a specific error message
+          setError(data.message);
         } else {
-          setError('Failed to sign up. Please try again later.'); // For generic errors
+          setError('Failed to sign up. Please try again later.');
         }
       }
     } catch (error) {
       console.error('Error:', error);
-      setError('Failed to connect to the server. Please try again later.'); // Network errors
+      setError('Failed to connect to the server. Please try again later.');
+      // Hide loading confirmation in case of an error
+      Swal.hideLoading();
     }
   };
   
