@@ -1,9 +1,9 @@
-:root {
+body {
   background-image: url('https://t3.ftcdn.net/jpg/04/12/82/16/360_F_412821610_95RpjzPXCE2LiWGVShIUCGJSktkJQh6P.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 1200px;
+  height: 1200px; /* Set an appropriate height for the background */
 }
 
 

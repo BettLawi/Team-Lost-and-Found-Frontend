@@ -73,3 +73,43 @@
 
 
 /* Add any other styles as needed */
+/* Existing CSS */
+
+/* @media queries for mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .home-container {
+      height: auto;
+    }
+  
+    .right-image {
+        
+      position: relative;
+      right: 0;
+      top: 0;
+      opacity: 1;
+      transition: none;
+      
+    }
+  
+    #image_lost {
+      width: 100%;
+    }
+  
+    #centerText,
+    #new_center {
+      max-width: 100%;
+    }
+  
+    .homeText {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      margin-left: 10px;
+    }
+  
+    .homeButtons {
+      flex-direction: column;
+      gap: 20px;
+      margin-left: 10px;
+    }
+  }
+  

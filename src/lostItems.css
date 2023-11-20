@@ -59,6 +59,43 @@
   #updateBtn {
     margin-top: 50px;
   }
+  @media screen and (max-width: 768px) {
+    .cards-container {
+      margin-top: 90px; /* Further adjust margin for smaller screens if needed */
+    }
+  
+    .card {
+      width: 90%; /* Adjust width for smaller screens */
+      margin: 10px auto; /* Center the card on smaller screens */
+      position: absolute;
+    }
+  
+    .card h3 {
+      font-size: medium; /* Adjust font size for smaller screens */
+      font-weight: 600; /* Adjust font weight for smaller screens */
+    }
+  
+    
+    .card img {
+      max-width: 350px;
+      max-height: 140px;
+      padding-right: 69px;
+     
+    }
+  
+   
+    .btns{
+      display: flex;
+      flex-direction: column;
+      float: right;
+      
 
+    }
+    .btns button {
+     position: relative;
+     bottom: 170px;
+     margin-top: 10px;
+    }
+  }
   
   

@@ -11,6 +11,7 @@ const ApplicationForm = () => {
 
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getTokenPayload = (token) => {
       const [, payload] = token.split('.');
       return JSON.parse(atob(payload));

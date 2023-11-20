@@ -58,30 +58,37 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width:100%;
+        width:80%;
         height:100vh;
         background:rgba(0,0,0,0.9);
         position:absolute;
         top: 0;
         left: -120%;
-        z-index: -3;
+        z-index: -10;
         transition: 0.3s;
         color: black;
    
     }
     .nav-menu.active{
         left: 0;
+       
 
     }
     .nav-menu li{
         padding: 1rem 0;
         }
     .nav-menu li a {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        color: white;
     }
     .hamburger{
         display: initial;
+        position: fixed;
+        right: 0;
+       
+
     }
+   
 }
 #search {
     font-size: xx-large;

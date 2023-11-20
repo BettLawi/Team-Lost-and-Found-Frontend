@@ -55,7 +55,7 @@ function Navbar({ role }) {
         {click ? (
           <FaTimes size={40} style={{ color: '#fff' }} />
         ) : (
-          <FaBars size={40} style={{ color: '#fff' }} />
+          <FaBars size={35} style={{ color: 'black' }} />
         )}
       </div>
     </div>

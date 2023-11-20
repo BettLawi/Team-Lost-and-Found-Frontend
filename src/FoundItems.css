@@ -56,4 +56,12 @@
 /* Adjust these styles according to your design */
 
 /* Adjust these styles according to your design */
+@media screen and (max-width: 768px) {
+  .card button {
+    float: right;
+  }
+   #cardimg {
+   margin-top: -140px;
+  }
+}
 

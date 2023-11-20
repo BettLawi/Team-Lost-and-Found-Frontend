@@ -40,7 +40,7 @@ function SignUp({ setRole, role }) {
         localStorage.setItem('token', data.access_token);
         Swal.fire({
           icon: "success",
-          text: "You have successfully signed up.",
+          text: `You have successfully signed up ${formData.username}.`,
         });
         history('/HomePage');
       } else {

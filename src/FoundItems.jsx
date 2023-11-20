@@ -158,7 +158,7 @@ function FoundItems() {
                 ))}
               </div>
             </div>
-            <img src={data.image_url} alt={`Image of ${data.foundItem}`} />
+            <img id= 'cardimg' src={data.image_url} alt={`Image of ${data.foundItem}`} />
           </div>
         ))}
       </div>

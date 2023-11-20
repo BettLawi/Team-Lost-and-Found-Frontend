@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Swal from "sweetalert2";
 
 import './lostAplication.css'; // Replace with your CSS file
@@ -51,6 +51,12 @@ const ApplicationFormLost = () => {
       console.error('An error occurred while submitting the form:', error);
     }
   };
+
+
+    // useEffect to scroll to the top on component mount
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   return (
     <form onSubmit={handleSubmit}>

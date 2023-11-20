@@ -29,7 +29,7 @@ function Home({role}) {
                     <button id='found_btn'> Report found item</button>
                 </Link>
             </div>
-            <Footer/>
+           
            
         </div>
     );

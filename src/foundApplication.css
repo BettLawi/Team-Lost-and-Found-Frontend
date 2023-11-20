@@ -11,10 +11,11 @@ form {
     border-radius: 5px;
     padding: 20px;
   }
-  h2 {
-    position: fixed;
-    top: 60px;
-    border-bottom: 2px solid ;
+  h1 {
+    border-bottom: 2px solid #90EE90;
+    font-size: x-large;
+    
+    
 
     
   }
@@ -72,4 +73,9 @@ form {
     background-color: white;
     border: 1px solid #90EE90;
   }
-  
+  @media screen and (max-width: 768px) {
+
+  }
+
+
+
